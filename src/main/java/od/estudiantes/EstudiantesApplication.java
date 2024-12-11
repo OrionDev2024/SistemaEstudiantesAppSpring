@@ -65,7 +65,16 @@ public class EstudiantesApplication implements CommandLineRunner {
 				estudiantes.forEach((estudiante -> logger.info(estudiante.toString() + nl)));
 
 			}//fin de caso 1
-
+			case 2 -> {
+				//Buscamos estudiante por id
+				logger.info("Introduce el id estudiante a buscar: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				Estudiante estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+				if (estudiante != null){
+					logger.info("Estudiante encontrado: " + estudiante + nl);
+				}else
+					logger.info("Estudiante NO encontrado con id: " + estudiante + nl);
+			}
 		}// fin de switch
 		return salir;
 	}
