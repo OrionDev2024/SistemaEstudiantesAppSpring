@@ -23,4 +23,15 @@ public class Estudiante {
     private String apellido;
     private  String telefono;
     private String email;
+    // Sobreescribir el método toString()
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "idEstudiante=" + idEstudiante +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
