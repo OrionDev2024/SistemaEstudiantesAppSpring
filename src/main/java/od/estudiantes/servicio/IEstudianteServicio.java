@@ -5,7 +5,7 @@ import od.estudiantes.modelo.Estudiante;
 import java.util.List;
 
 public interface IEstudianteServicio {
-    public List<Estudiante> listarEstudiante();
+    public List<Estudiante> listarEstudiantes();
 
     public  Estudiante buscarEstudiantePorId(Integer idEstudiante);
 
