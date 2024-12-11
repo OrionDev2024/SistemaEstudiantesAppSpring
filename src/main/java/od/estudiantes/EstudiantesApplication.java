@@ -74,6 +74,53 @@ public class EstudiantesApplication implements CommandLineRunner {
 					logger.info("Estudiante encontrado: " + estudiante + nl);
 				}else
 					logger.info("Estudiante NO encontrado con id: " + estudiante + nl);
+			}// fin de caso 2
+			case 3 -> {
+				//Agregar estudiante
+				logger.info("Agregar Estudiante: " + nl);
+				logger.info("Nombre: ");
+				var nombre = consola.nextLine();
+				logger.info("Apellido: ");
+				var apellido = consola.nextLine();
+				logger.info("Telefono: ");
+				var telefono = consola.nextLine();
+				logger.info("Email: ");
+				var email = consola.nextLine();
+				//crear el objeto estudiante sin el id
+				var estudiante = new Estudiante();
+				estudiante.setNombre(nombre);
+				estudiante.setApellido(apellido);
+				estudiante.setTelefono(telefono);
+				estudiante.setEmail(email);
+				estudianteServicio.guardarEstudiante(estudiante);
+				logger.info("Estudiante agregado: " + estudiante + nl);
+
+			}// fin caso 3
+			case 4 -> {
+				//Modificar estudiante
+				logger.info("Modificar estudiante: " + nl);
+				logger.info("Id Estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				//Buscamos el estudiantge  modificar
+				Estudiante estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+				if (estudiante != null){
+					logger.info("Nombre: ");
+					var nombre = consola.nextLine();
+					logger.info("Apellido: ");
+					var apellido = consola.nextLine();
+					logger.info("Telefono: ");
+					var telefono = consola.nextLine();
+					logger.info("Email: ");
+					var email = consola.nextLine();
+					estudiante.setNombre(nombre);
+					estudiante.setApellido(apellido);
+					estudiante.setTelefono(telefono);
+					estudiante.setEmail(email);
+					estudianteServicio.guardarEstudiante(estudiante);
+					logger.info("Estudiante modificado: " + estudiante + nl);
+				}else {
+					logger.info("Estudiante NO encontrado con id: " + idEstudiante + nl);
+				}
 			}
 		}// fin de switch
 		return salir;

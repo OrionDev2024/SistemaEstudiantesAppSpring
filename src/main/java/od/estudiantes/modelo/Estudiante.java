@@ -14,7 +14,7 @@ import lombok.ToString;
 @Data//getters y setters
 @NoArgsConstructor //constructor vacío
 @AllArgsConstructor //constructor con parametros
-@ToString //metodo ToString
+//@ToString //metodo ToString
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
