@@ -14,7 +14,7 @@ import lombok.ToString;
 @Data//getters y setters
 @NoArgsConstructor //constructor vacío
 @AllArgsConstructor //constructor con parametros
-//@ToString //metodo ToString
+@ToString //metodo ToString
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +23,5 @@ public class Estudiante {
     private String apellido;
     private  String telefono;
     private String email;
-    // Sobreescribir el método toString()
-    @Override
-    public String toString() {
-        return "Estudiante{" +
-                "idEstudiante=" + idEstudiante +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+
 }

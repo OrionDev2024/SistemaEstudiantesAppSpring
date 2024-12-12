@@ -52,7 +52,7 @@ public class EstudiantesApplication implements CommandLineRunner {
 				4. Modificar Estudiante.
 				5. Eliminar Estudiante.
 				6. Salir
-				Elige una opción: """);
+				Elige una opción:""");
 	}//fin de mostrarMenu
 	private boolean ejecutarOpciones(Scanner consola){
 		var opcion = Integer.parseInt(consola.nextLine());
@@ -121,7 +121,27 @@ public class EstudiantesApplication implements CommandLineRunner {
 				}else {
 					logger.info("Estudiante NO encontrado con id: " + idEstudiante + nl);
 				}
-			}
+			}//fin de case 4
+			case 5 ->{
+				//Eliminar estudiante
+				logger.info("Eliminar estudiante: " + nl);
+				logger.info("Id Estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				//buscamos el id a eliminar
+				var estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+				if (estudiante != null){
+					estudianteServicio.eliminarEstudiante(estudiante);
+					logger.info("Estudiante eliminado: " + estudiante + nl);
+				}else {
+					logger.info("Estudiante NO encontrado con id: " + idEstudiante + nl);
+				}
+			}// fin de caso 6
+			case 6 -> {
+				//salir
+				logger.info("Hasta pronto!" + nl + nl);
+				salir = true;
+			}// fin de case 6
+			default -> logger.info("Opción NO reconocida: " + opcion + nl);
 		}// fin de switch
 		return salir;
 	}
